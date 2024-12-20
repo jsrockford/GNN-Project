@@ -1,0 +1,27 @@
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Database files
+chroma_db/
+chroma_test_db/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# VS Code
+.vscode/
+.vs/
+
+# Operating System
+.DS_Store
+Thumbs.db
+conversation_memory.json
