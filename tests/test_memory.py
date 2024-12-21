@@ -1,6 +1,7 @@
 import time
+import os
 import requests
-from memory_llm import OllamaMemory
+from src.memory.llm import OllamaMemory  # Update from previous 'from memory_llm import OllamaMemory'
 
 def select_model():
     """Get available models from Ollama and let user select one"""
@@ -34,11 +35,14 @@ def select_model():
 
 class MemoryTester:
     def __init__(self, model_name, test_db_path="./chroma_test_db"):
-        """Initialize tester with separate test database"""
         self.model_name = model_name
         self.test_db_path = test_db_path
-        # Initialize memory system with test database
-        self.memory = OllamaMemory(model_name=model_name, persist_directory=test_db_path)
+        # Initialize memory system with test database and unique collection name
+        self.memory = OllamaMemory(
+            model_name=model_name, 
+            persist_directory=test_db_path,
+            collection_name="test_conversation_memory"  # Unique name for tests
+        )
         self.test_results = []
         print(f"[DEBUG] Initialized test database at: {os.path.abspath(test_db_path)}")
     
