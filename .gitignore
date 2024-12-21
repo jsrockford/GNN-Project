@@ -7,6 +7,9 @@ ENV/
 chroma_db/
 chroma_test_db/
 
+# old files
+deprecated/
+
 # Python
 __pycache__/
 *.py[cod]
